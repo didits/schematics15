@@ -1,0 +1,14 @@
+{
+  "name": "demos",
+  "homepage": "https://github.com/Polymer/demos",
+  "_release": "378052c9e6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "378052c9e6cfb6ca2e5ba1c59cb0b723f06e4dc7"
+  },
+  "_source": "https://github.com/Polymer/demos.git",
+  "_target": "*",
+  "_originalSource": "Polymer/demos",
+  "_direct": true
+}
