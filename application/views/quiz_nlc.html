@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+<script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+<style shim-shadowdom>
+body {
+	height: 100%;
+	font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+	margin: 0;
+	padding: 0;
+}
+core-toolbar {
+	background-color: #f4b400;
+	color: #f1f1f1;
+}
+core-toolbar.dark-theme {
+	background-color: #7D25AC;
+	color: #f1f1f1;
+	fill: #f1f1f1;
+}
+.divider {
+	margin-top: 30px;
+	border-top: #CCC solid 1px;
+}
+paper-radio-button {
+	display: block;
+}
+@media (min-width: 200px) {
+.content {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+}
+@media (min-width: 480px) {
+.content {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+}
+@media (min-width: 768px) {
+.content {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+}
+@media (min-width: 992px) {
+.content {
+	padding-left: 20%;
+	padding-right: 20%;
+}
+}
+</style>
+</head>
+<body unresolved>
+<core-toolbar> <a href="nlc.html" style="color:#f1f1f1">
+	<core-icon-button icon="arrow-back"></core-icon-button>
+	</a> <span flex>Quiz NLC</span> </core-toolbar>
+<div class="content">
+	<h1 align="center">QUIZ NLC</h1>
+	<form is="component-form" method="get">
+		<section>
+			<h4>Keep Wi-Fi on during sleep</h4>
+			<paper-radio-group selected="always">
+				<paper-radio-button name="always" label="Always"></paper-radio-button>
+				<paper-radio-button name="ok" label="Only when plugged in"></paper-radio-button>
+				<paper-radio-button name="yeye" label="Never"></paper-radio-button>
+			</paper-radio-group>
+		</section>
+		<paper-button type="submit" label="Custom Submit"></paper-button>
+		<input type="submit" value="Native Submit" />
+	</form>
+	<div class="divider"></div>
+	<form is="component-form" method="get">
+		<paper-input label="Title" name="title"></paper-input>
+		<br/>
+		<paper-input floatinglabel multiline label="Description" name="description"></paper-input>
+		<br/>
+		<input type="hidden" name="nativeHidden" value="12345" />
+		<paper-button type="submit" label="Custom Submit"></paper-button>
+		<input type="submit" value="Native Submit" />
+	</form>
+</div>
+</body>
+</html>
