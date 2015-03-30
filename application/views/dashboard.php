@@ -69,13 +69,12 @@
   </core-tooltip>
   
   </core-toolbar>
-  <div>
-      <span>Ratings</span><span id="ratingsLabel"></span>
-  </div>
+	  <div>
+		  <span>Step</span><span id="ratingsLabel"></span><span>/4</span>
+	  </div>
     <br>
-  <paper-slider id="ratings" pin snaps max="10" step="1" value="5"></paper-slider>
+  <paper-slider id="ratings" pin snaps max="4" step="1" value="0"></paper-slider>
    <script>
-  
     var ratings = document.querySelector('#ratings');
     ratings.addEventListener('core-change', function() {
       document.querySelector('#ratingsLabel').textContent = ratings.value;
