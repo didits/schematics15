@@ -8,6 +8,9 @@
 <link rel="import" href="<?php echo base_url(); ?>bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="<?php echo base_url(); ?>bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="<?php echo base_url(); ?>bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="<?php echo base_url(); ?>bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="<?php echo base_url(); ?>bower_components/core-pages/core-pages.html">
+<link rel="import" href="<?php echo base_url(); ?>bower_components/paper-shadow/paper-shadow.html">
 
   <style shim-shadowdom>
 
@@ -54,7 +57,55 @@
       padding-left: 12px;
       color: #a0a0a0;
     }
-
+	
+	paper-input-decorator /deep/ .label-text,
+	paper-input-decorator /deep/ .error {
+		/* inline label,  floating label, error message and error icon color when the input is unfocused */
+		color: green;
+	}
+	
+	paper-input-decorator /deep/ ::-webkit-input-placeholder {
+		/* platform specific rules for placeholder text */
+		color: green;
+	}
+	paper-input-decorator /deep/ ::-moz-placeholder {
+		color: green;
+	}
+	paper-input-decorator /deep/ :-ms-input-placeholder {
+		color: green;
+	}
+	
+	paper-input-decorator /deep/ .unfocused-underline {
+		/* line color when the input is unfocused */
+		background-color: green;
+	}
+	
+	paper-input-decorator[focused] /deep/ .floating-label .label-text {
+		/* floating label color when the input is focused */
+		color: orange;
+	}
+	
+	paper-input-decorator /deep/ .focused-underline {
+		/* line color when the input is focused */
+		background-color: orange;
+	}
+	
+	paper-input-decorator.invalid[focused] /deep/ .floated-label .label-text,
+	paper-input-decorator[focused] /deep/ .error {
+		/* floating label, error message nad error icon color when the input is invalid and focused */
+		color: salmon;
+	}
+	
+	paper-input-decorator.invalid /deep/ .focused-underline {
+		/* line and color when the input is invalid and focused */
+		background-color: salmon;
+	}
+	#page{
+		box-shadow:#FC62BE;
+		border: #F60;
+		margin:50px;
+		padding:50px;
+	}
 
   </style>
 </head>
@@ -68,19 +119,39 @@
     </core-item>
   </core-tooltip>
   
-  </core-toolbar>
-	  <div>
-		  <span>Step</span><span id="ratingsLabel"></span><span>/4</span>
-	  </div>
-    <br>
-  <paper-slider id="ratings" pin snaps max="4" step="1" value="0"></paper-slider>
-   <script>
-    var ratings = document.querySelector('#ratings');
-    ratings.addEventListener('core-change', function() {
-      document.querySelector('#ratingsLabel').textContent = ratings.value;
-    });
-  
-  </script>
+  </core-toolbar>  
+<paper-tabs selected="0">
+  <paper-tab>1. Identitas Tim</paper-tab>
+  <paper-tab>Tab 2</paper-tab>
+  <paper-tab>Tab 3</paper-tab>
+</paper-tabs>
+<br>
+<core-pages selected="0">
+<div>
+<paper-shadow z="1" id="page">
+<div>
+  	<paper-input-decorator floatingLabel label="Isikan data kelompok tim Anda:">
+	</paper-input-decorator>
+	<paper-input-decorator floatingLabel label="Your address">
+    	<input is="core-input">
+	</paper-input-decorator>
+	<paper-input-decorator floatingLabel label="Your address">
+    	<input is="core-input">
+	</paper-input-decorator>
+	</div>
+	</paper-shadow>
+	</div>
+  <div>Page 2</div>
+  <div>Page 3</div>
+</core-pages>
+<script>
+  var tabs  = document.querySelector('paper-tabs'); 
+  var pages = document.querySelector('core-pages');
+  tabs.addEventListener('core-select',function(){
+  pages.selected = tabs.selected;
+  console.log("Selected: " + tabs.selected);
+});
+</script>
 </body>
 </html>
 
