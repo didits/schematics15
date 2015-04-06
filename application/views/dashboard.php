@@ -130,12 +130,12 @@
 <div>
 <paper-shadow z="1" id="page">
 <div>
-  	<paper-input-decorator floatingLabel label="Isikan data kelompok tim Anda:">
+  	<paper-input-decorator floatingLabel label="MASUKAN DATA KELOMPOK ANDA">
 	</paper-input-decorator>
-	<paper-input-decorator floatingLabel label="Your address">
+	<paper-input-decorator floatingLabel label="Nama">
     	<input is="core-input">
 	</paper-input-decorator>
-	<paper-input-decorator floatingLabel label="Your address">
+	<paper-input-decorator floatingLabel label="Alamat">
     	<input is="core-input">
 	</paper-input-decorator>
 	</div>
