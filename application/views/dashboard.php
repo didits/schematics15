@@ -11,6 +11,8 @@
 <link rel="import" href="<?php echo base_url(); ?>bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="<?php echo base_url(); ?>bower_components/core-pages/core-pages.html">
 <link rel="import" href="<?php echo base_url(); ?>bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="<?php echo base_url(); ?>bower_components/paper-button/paper-button.html">
+
 
   <style shim-shadowdom>
 
@@ -19,6 +21,9 @@
       font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
       margin: 0;
       padding: 0;
+    }
+    body{
+      background-color: #FDFF9E;
     }
      core-toolbar {
       background-color: #CFA0E9;
@@ -42,16 +47,6 @@
       padding: 14px;
     }
     
-    .yellow-slider paper-slider::shadow #sliderKnobInner,
-    .yellow-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
-      background-color: #f4b400;
-    }
-    
-    .green-slider paper-slider::shadow #sliderKnobInner,
-    .green-slider paper-slider::shadow #sliderKnobInner::before,
-    .green-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
-      background-color: #0f9d58;
-    }
     
     #ratingsLabel {
       padding-left: 12px;
@@ -62,6 +57,7 @@
 	paper-input-decorator /deep/ .error {
 		/* inline label,  floating label, error message and error icon color when the input is unfocused */
 		color: green;
+    margin: 0;
 	}
 	
 	paper-input-decorator /deep/ ::-webkit-input-placeholder {
@@ -100,13 +96,28 @@
 		/* line and color when the input is invalid and focused */
 		background-color: salmon;
 	}
+
+  
+
 	#page{
 		box-shadow:#FC62BE;
+    background-color: white;
 		border: #F60;
-		margin:50px;
-		padding:50px;
+		margin-top:50px;
+    margin-bottom:50px;
+    margin-left: 250px;
+    margin-right: 250px;
+    padding: 75px;
 	}
-
+  #my-button{
+    float: right;
+  }
+  #my-button::shadow #ripple {
+    color: #F7CA18;
+  }
+  .line{
+    margin: 30px;
+  }
   </style>
 </head>
 <body unresolved>
@@ -121,24 +132,52 @@
   
   </core-toolbar>  
 <paper-tabs selected="0">
-  <paper-tab>1. Identitas Tim</paper-tab>
+  <paper-tab>Identitas Kelompok</paper-tab>
   <paper-tab>Tab 2</paper-tab>
   <paper-tab>Tab 3</paper-tab>
+  <paper-tab>Tab 4</paper-tab>
 </paper-tabs>
 <br>
 <core-pages selected="0">
 <div>
 <paper-shadow z="1" id="page">
 <div>
-  	<paper-input-decorator floatingLabel label="MASUKAN DATA KELOMPOK ANDA">
-	</paper-input-decorator>
-	<paper-input-decorator floatingLabel label="Nama">
+  	<h1><center>MASUKAN DATA KELOMPOK ANDA</center></h1>
+	<paper-input-decorator floatingLabel label="Nama Kelompok">
     	<input is="core-input">
 	</paper-input-decorator>
-	<paper-input-decorator floatingLabel label="Alamat">
-    	<input is="core-input">
-	</paper-input-decorator>
+  <paper-input-decorator floatingLabel label="Email Ketua">
+      <input is="core-input">
+  </paper-input-decorator>
+  <paper-input-decorator floatingLabel label="Asal Sekolah">
+      <input is="core-input">
+  </paper-input-decorator>
+  <paper-input-decorator floatingLabel label="Alamat Sekolah">
+      <input is="core-input">
+  </paper-input-decorator>
+  <div class="line"></div>
+  <paper-input-decorator floatingLabel label="Nama Ketua">
+      <input is="core-input">
+  </paper-input-decorator>
+  <paper-input-decorator floatingLabel label="No Handphone Ketua">
+      <input is="core-input">
+  </paper-input-decorator>
+  <div class="line"></div>
+  <paper-input-decorator floatingLabel label="Nama Anggota 1">
+      <input is="core-input">
+  </paper-input-decorator>
+  <paper-input-decorator floatingLabel label="No Handphone Anggota 1">
+      <input is="core-input">
+  </paper-input-decorator>
+  <div class="line"></div>
+  <paper-input-decorator floatingLabel label="Nama Anggota 2">
+      <input is="core-input">
+  </paper-input-decorator>
+  <paper-input-decorator floatingLabel label="No Handphone Anggota 2">
+      <input is="core-input">
+  </paper-input-decorator>
 	</div>
+  <paper-button raised id="my-button">Next</paper-button>
 	</paper-shadow>
 	</div>
   <div>Page 2</div>
@@ -154,4 +193,3 @@
 </script>
 </body>
 </html>
-
