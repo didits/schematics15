@@ -120,7 +120,7 @@
       <section id="details">
 
         <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
-          <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+          <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero>{{selectedAlbum.syarat}}</div>
           <div class="card-right" flex>
             <div layout horizontal center>
               <div>
@@ -146,10 +146,11 @@
       page: 0,
 
       items: [
-        { artist: 'Tycho', album: 'NLC', color: '#f4db33' },
-        { artist: 'Tycho', album: 'NPC', color: '#972ff8' },
-        { artist: 'Tycho', album: 'NST', color: '#7dd6fe' },
-        { artist: 'Tycho', album: 'REEVA', color: '#dc3c84' }
+        { artist: 'Tycho', album: 'NLC', color: '#f4db33', syarat:'<br>dasdsad' },
+        { artist: 'Tycho', album: 'NPC', color: '#972ff8', syarat:'dasdsad' },
+        { artist: 'Tycho', album: 'NST', color: '#7dd6fe', syarat:'dasdsad' },
+        { artist: 'Tycho', album: 'REEVA', color: '#dc3c84', syarat:'dasdsad'},
+		{ artist: 'Tycho', album: 'REEVA', color: '#dc3c84', syarat:'dasdsad'}
       ],
 
       selectedAlbum: null,

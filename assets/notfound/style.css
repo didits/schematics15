@@ -1,0 +1,49 @@
+@font-face {
+	font-family: 'Slabo 27px';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Slabo 27px'), local(Slabo27px-Regular), url(font1.woff2) format("woff2"), url(font1.woff) format("woff");
+}
+*, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+}
+body {
+	font-size: 1.2rem;
+	font-family: "Slabo 27px", serif;;
+	background-color: #000;
+}
+.left{
+	float:left;
+	display:block;
+	width:100%;
+	height:auto;
+	background-color:#000;
+	color:#FFF;
+	margin:0;
+	}
+.box{
+	display:block;
+	width:80%;
+	height:50%;
+	margin:auto;}
+.gambar{
+	position:relative;
+	top:20%;
+	left:0;
+	right:0;
+	display:block;
+	width:80%;
+	height:40%;
+	margin:auto;}
+.navigasi{
+	font-size:18px
+	list-style-type:none;
+	}
+.center{
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	margin-top:10%;
+	margin-bottom:20%}
