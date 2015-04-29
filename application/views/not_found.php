@@ -9,7 +9,7 @@
 </head>
 <body style="background-color:#F1C40F; margin:0;">
 <div class="center">
-<p align="center"><img id="zoom_07" src="<?php echo base_url(); ?>assets/notfound/images/small/404.png" data-zoom-image="<?php echo base_url(); ?>assets/notfound/images/large/404D.png" width="30%"/></p>
+<p align="center"><img id="zoom_07" src="<?php echo base_url(); ?>assets/notfound/images/small/404.png" data-zoom-image="<?php echo base_url(); ?>assets/notfound/images/large/404D.png" width="40%"/></p>
 </div>
 <div class="left">
 	<div class="box">
@@ -25,7 +25,6 @@
 			<li><h3>Bagaimana cara mengatasinya?</h3></li>
 			<ul>
 				<li>Cek alamat website yang Anda masukkan</li>
-				<li>Hubungi Administrator</li>
 			</ul>
 		</ul>
 		<br />
