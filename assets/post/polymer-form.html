@@ -1,0 +1,145 @@
+<link href="https://www.polymer-project.org/components/polymer/polymer.html" rel="import"> 
+<link rel="import" href="https://www.polymer-project.org/components/font-roboto/roboto.html">
+<link href="https://www.polymer-project.org/components/paper-input/paper-input.html" rel="import"> 
+<link href="https://www.polymer-project.org/components/paper-button/paper-button.html" rel="import"> 
+<link href="https://www.polymer-project.org/components/core-ajax/core-ajax.html" rel="import"> 
+<link href="https://www.polymer-project.org/components/paper-spinner/paper-spinner.html" rel="import"> 
+<link href="https://www.polymer-project.org/components/paper-toast/paper-toast.html" rel="import"> 
+<polymer-element name="polymer-form" attributes="url">
+  <template>
+    <style>
+      :host {
+        text-align:center;
+        margin:auto;
+        font-family: 'RobotoDraft', sans-serif;
+      }
+      #load {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+        background: rgba(255,255,255,0.7);
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        -webkit-justify-content: center;
+        -webkit-align-items: center;
+        align-items:center;
+        justify-content:center;
+      }
+      paper-button {
+        background:#cccccc;
+      }
+    </style>
+    <core-ajax
+      id="ajax"
+      auto="false"
+      method="POST"
+      url="{{url}}"
+      handleas="json"
+      loading="{{isLoading}}"
+      error="{{error}}"
+      params='{{post}}'
+      response="{{response}}">
+    </core-ajax>
+    <div id="validate">
+      <paper-input-decorator
+        id="input1"
+        labelVisible
+        floatinglabel
+        error="URL Required"
+        label="URL">
+        <input is="core-input" type="URL" value="{{post.url}}" required>
+      </paper-input-decorator>
+      <br>
+      <paper-input-decorator
+        id="input2"
+        labelVisible
+        floatinglabel
+        error="Number Required"
+        label="Number">
+        <input is="core-input" type="number" value="{{post.number}}" required>
+      </paper-input-decorator> 
+      <br>
+      <paper-button on-tap="{{submit}}">
+        <template if="{{isLoading}}">
+          <div id="load">
+            <paper-spinner active></paper-spinner>
+          </div>
+        </template>
+        Submit
+      </paper-button>
+      <paper-toast id="toast"></paper-toast>
+    </div>
+  </template>
+  <script>
+    Polymer('polymer-form',{
+      ready: function () {
+        'use strict';
+        this.post = [];
+
+      },
+      validate: function () {
+        'use strict';
+        
+        /* 
+          here i use polymer built in selector to select all the inputs that are inside the div with the id of validate
+        */
+        var $d = this.$.validate.querySelectorAll('paper-input-decorator');
+        Array.prototype.forEach.call($d, function(d) {
+          d.isInvalid = !d.querySelector('input').validity.valid;
+        });
+      },
+      submit: function () {
+        'use strict';
+        
+        /* 
+          preforms the validation 
+        */
+        this.validate();
+        
+        /*
+          the timeout makes sure that enough time is given for all inputs to be validated
+          
+          then we check if any input has a invalid class. if no input is invalid we run the ajax.
+          
+          a variable will need to be made for each input you want to check as well as adding the variable to the folowing if statment
+          
+          data is in the this.post variable.
+        */
+        setTimeout(function () {
+          var invalid1 = this.$.input1.classList.contains("invalid"),
+            invalid2 = this.$.input2.classList.contains("invalid");
+             
+          if (!invalid1 && !invalid2) {
+            console.log(this.post);
+            this.$.ajax.go(); 
+          }
+        }.bind(this), 100);
+      },
+      responseChanged: function () {
+        'use strict';
+        /*
+          will display server response in a toast
+        */
+        if (this.response) {
+          this.$.toast.text = this.response;
+          this.$.toast.show();
+        }
+      },
+      errorChanged: function () {
+        'use strict';
+        /*
+          will display any ajax error in a toast
+        */
+        if (this.error) {
+          this.$.toast.text = this.error;
+          this.$.toast.show();
+        }
+      }
+    });
+  </script>
+</polymer-element>
